@@ -3,91 +3,80 @@ package pl.alergeek.model.implementation;
 import pl.alergeek.model.Day;
 import pl.alergeek.model.Task;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
 public class Day1 implements Day {
-    private static final String FILENAME = "/day1.txt";
-    private final Task task1 = new Task1();
-    private final Task task2 = new Task2();
+    private final String filename;
+    private final Task task1;
+    private final Task task2;
+
+    public Day1(String filename) {
+        this.filename = filename;
+        task1 = new Task1();
+        task2 = new Task2();
+    }
+
+    // Used by RunCommand.class as part of triggering code using reflection.
+    public Day1() {
+        this.filename = "/day1.txt";
+        task1 = new Task1();
+        task2 = new Task2();
+    }
 
     @Override
     public String task1() {
-        return task1.solve();
+        return task1.solve(FileReader.readFile(filename));
     }
 
     @Override
     public String task2() {
-        return task2.solve();
+        return task2.solve(FileReader.readFile(filename));
     }
 
-    public static class Task1 implements Task {
-
-        private InputStream file;
-
-        public Task1() {
-            this.file = getClass().getResourceAsStream(FILENAME);
-        }
+    public class Task1 implements Task {
 
         @Override
-        public String solve() {
-            try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.file))) {
-                int result = bufferedReader.lines()
-                        .mapToInt(line -> {
-                            line = line.replaceAll("[^\\d]", "");
+        public String solve(List<String> input) {
+            List<String> lines = FileReader.readFile(filename);
+            int result = lines.stream()
+                    .mapToInt(line -> {
+                        line = line.replaceAll("[^\\d]", "");
+                        if (!line.isEmpty()) {
                             char[] charArray = line.toCharArray();
                             char firstDigit = charArray[0];
                             char lastDigit = charArray[charArray.length - 1];
                             return Integer.parseInt("%s%s".formatted(firstDigit, lastDigit));
-                        })
-                        .sum();
-                return String.valueOf(result);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-
-        @Override
-        public void setFile(InputStream file) {
-            this.file = file;
+                        }
+                        return 0;
+                    })
+                    .sum();
+            return String.valueOf(result);
         }
     }
 
-    public static class Task2 implements Task {
-        private InputStream file;
-
-        public Task2() {
-            this.file = getClass().getResourceAsStream(FILENAME);
-        }
-
+    public class Task2 implements Task {
         @Override
-        public String solve() {
-            try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.file))) {
-                int result = bufferedReader.lines()
-                        .mapToInt(line -> {
-                            final StringBuilder input = new StringBuilder(line);
-                            StringBuilder regexBuilder = new StringBuilder("one|two|three|four|five|six|seven|eight|nine");
+        public String solve(List<String> input) {
+            int result = input.stream()
+                    .mapToInt(line -> {
+                        final StringBuilder sb = new StringBuilder(line);
+                        StringBuilder regexBuilder = new StringBuilder("one|two|three|four|five|six|seven|eight|nine");
 
-                            String regex = regexBuilder.toString();
-                            String firstDigit = findFirstDigit("%s%s".formatted("[0-9]|", regex), input, false);
+                        String regex = regexBuilder.toString();
+                        String firstDigit = findFirstDigit("%s%s".formatted("[0-9]|", regex), sb, false);
 
-                            StringBuilder inputReversed = input.reverse();
-                            String reversedRegex = regexBuilder.reverse().toString();
-                            String lastDigit = findFirstDigit("%s%s".formatted("[0-9]|", reversedRegex), inputReversed, true);
-                            return Integer.parseInt("%s%s".formatted(firstDigit, lastDigit));
-                        })
-                        .sum();
-                return String.valueOf(result);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+                        StringBuilder inputReversed = sb.reverse();
+                        String reversedRegex = regexBuilder.reverse().toString();
+                        String lastDigit = findFirstDigit("%s%s".formatted("[0-9]|", reversedRegex), inputReversed, true);
+                        return Integer.parseInt("%s%s".formatted(firstDigit, lastDigit));
+                    })
+                    .sum();
+            return String.valueOf(result);
         }
 
         private String findFirstDigit(String regex, StringBuilder input, boolean isReversed) {
@@ -119,11 +108,6 @@ public class Day1 implements Day {
             digitsWordsMap.put("eight", "8");
             digitsWordsMap.put("nine", "9");
             return digitsWordsMap;
-        }
-
-        @Override
-        public void setFile(InputStream file) {
-            this.file = file;
         }
     }
 }

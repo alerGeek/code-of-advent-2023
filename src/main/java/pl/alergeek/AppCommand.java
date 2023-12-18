@@ -2,8 +2,6 @@ package pl.alergeek;
 
 import picocli.CommandLine;
 
-import java.util.logging.Logger;
-
 import static picocli.CommandLine.Command;
 
 @Command(
@@ -22,7 +20,6 @@ import static picocli.CommandLine.Command;
                 ListCommand.class}
 )
 public class AppCommand {
-    private final Logger logger = Logger.getLogger("AppCommand.class");
 
     public static void main(String[] args) {
         new CommandLine(new AppCommand()).execute(args);

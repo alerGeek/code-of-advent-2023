@@ -1,12 +1,10 @@
 package pl.alergeek.model;
 
-import java.io.InputStream;
+import java.util.List;
 
 public interface Task {
 
-    default String solve() {
+    default String solve(List<String> input) {
         throw new RuntimeException("Not implemented method!");
     }
-
-    void setFile(InputStream file);
 }
