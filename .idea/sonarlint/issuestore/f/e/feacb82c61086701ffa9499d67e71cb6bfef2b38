@@ -1,0 +1,8 @@
+
+g	java:S112/"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ÓßäåÇ1
+U
+java:S1874("3Remove this use of "newInstance"; it is deprecated.(¸Ûô˜ıÿÿÿÿ8ã–ÙåÇ1
+L	java:S106,"+Replace this use of System.out by a logger.(ê©Æªşÿÿÿÿ8íÖãåÇ1
+L	java:S106-"+Replace this use of System.out by a logger.(È—Ò¥ÿÿÿÿÿ8åßäåÇ1
+G
+java:S1068"*Remove this unused "logger" private field.(áåîğ8ıµØåÇ1

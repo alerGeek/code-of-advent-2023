@@ -1,0 +1,7 @@
+
+u
+java:S1450"SRemove the "days" field and declare it as a local variable in the relevant methods.(šà˜Úüÿÿÿÿ8˜Â²åÇ1
+G	java:S106'"+Replace this use of System.out by a logger.(şŒ…°8½œ¯åÇ1
+L	java:S106("+Replace this use of System.out by a logger.(²û™ãıÿÿÿÿ8½œ¯åÇ1
+G
+java:S1068"*Remove this unused "logger" private field.(Úşâ‡8Ãœ¯åÇ1

@@ -1,0 +1,10 @@
+
+g	java:S1125"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8‘¯ùÒÇ1
+{
+java:S1488{"^Immediately return this expression instead of assigning it to the temporary variable "result".(ÜÉÑ8’¯ùÒÇ1
+^
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(»²Ã¾8¢¯ùÒÇ1
+L	java:S106g"+Replace this use of System.out by a logger.(ŠŠÇÔùÿÿÿÿ8²¯ùÒÇ1
+X	java:S125~"<This block of commented-out lines of code should be removed.(§Ú·³8·¯ùÒÇ1
+D
+java:S1068A"(Remove this unused "file" private field.(şÖ‘:8¸¯ùÒÇ1
