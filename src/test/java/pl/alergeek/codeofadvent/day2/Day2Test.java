@@ -1,8 +1,7 @@
-package pl.alergeek;
+package pl.alergeek.codeofadvent.day2;
 
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import pl.alergeek.model.implementation.Day2;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
