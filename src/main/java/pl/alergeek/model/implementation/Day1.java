@@ -2,6 +2,7 @@ package pl.alergeek.model.implementation;
 
 import pl.alergeek.model.Day;
 import pl.alergeek.model.Task;
+import pl.alergeek.model.utils.FileReader;
 
 import java.util.HashMap;
 import java.util.List;
@@ -42,8 +43,7 @@ public class Day1 implements Day {
 
         @Override
         public String solve(List<String> input) {
-            List<String> lines = FileReader.readFile(filename);
-            int result = lines.stream()
+            int result = input.stream()
                     .mapToInt(line -> {
                         line = line.replaceAll("[^\\d]", "");
                         if (!line.isEmpty()) {
