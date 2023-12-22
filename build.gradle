@@ -23,6 +23,11 @@ compileJava {
     options.compilerArgs += ["-Aproject=${project.group}/${project.name}"]
 }
 
+wrapper {
+    gradleVersion = 8.2
+    distributionType = Wrapper.DistributionType.BIN
+}
+
 jar {
     archiveFileName = jarPath
     manifest {
@@ -37,7 +42,7 @@ tasks.register('list', JavaExec) {
     description "run tests from given day"
     description "list existing days"
     classpath = sourceSets.main.runtimeClasspath
-    mainClass = "-jar";
+    mainClass = "-jar"
     args = [
             "${buildDir}/advent.jar",
             "list",
@@ -49,7 +54,7 @@ tasks.register("runDay1", JavaExec) {
     description "run tests from given day"
     dependsOn jar
     classpath = sourceSets.main.runtimeClasspath
-    mainClass = "-jar";
+    mainClass = "-jar"
     args = [
             "${buildDir}/advent.jar",
             "run", "--day", "day1"
@@ -61,7 +66,7 @@ tasks.register("runDay2", JavaExec) {
     description "run tests from given day"
     dependsOn jar
     classpath = sourceSets.main.runtimeClasspath
-    mainClass = "-jar";
+    mainClass = "-jar"
     args = [
             "${buildDir}/advent.jar",
             "run", "--day", "day2"
@@ -73,7 +78,7 @@ tasks.register("runDay3", JavaExec) {
     description "run tests from given day"
     dependsOn jar
     classpath = sourceSets.main.runtimeClasspath
-    mainClass = "-jar";
+    mainClass = "-jar"
     args = [
             "${buildDir}/advent.jar",
             "run", "--day", "day3"
