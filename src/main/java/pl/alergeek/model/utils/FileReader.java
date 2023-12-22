@@ -1,4 +1,4 @@
-package pl.alergeek.model.implementation;
+package pl.alergeek.model.utils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Objects;
 
-class FileReader {
+public class FileReader {
     private FileReader() {
     }
 

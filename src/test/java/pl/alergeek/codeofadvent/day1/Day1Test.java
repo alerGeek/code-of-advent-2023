@@ -1,12 +1,9 @@
-package pl.alergeek;
+package pl.alergeek.codeofadvent.day1;
 
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import pl.alergeek.model.implementation.Day1;
 
 import static org.assertj.core.api.Assertions.assertThat;
-// assertj
-// testy hierarchiczne
 
 class Day1Test {
 
