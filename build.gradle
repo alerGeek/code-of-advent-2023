@@ -49,7 +49,7 @@ tasks.register('list', JavaExec) {
     ]
 }
 
-tasks.register("runDay1", JavaExec) {
+tasks.register("day1", JavaExec) {
     group "_jar"
     description "run tests from given day"
     dependsOn jar
@@ -61,7 +61,7 @@ tasks.register("runDay1", JavaExec) {
     ]
 }
 
-tasks.register("runDay2", JavaExec) {
+tasks.register("day2", JavaExec) {
     group "_jar"
     description "run tests from given day"
     dependsOn jar
@@ -73,7 +73,7 @@ tasks.register("runDay2", JavaExec) {
     ]
 }
 
-tasks.register("runDay3", JavaExec) {
+tasks.register("day3", JavaExec) {
     group "_jar"
     description "run tests from given day"
     dependsOn jar
@@ -85,7 +85,7 @@ tasks.register("runDay3", JavaExec) {
     ]
 }
 
-tasks.register("runDay4", JavaExec) {
+tasks.register("day4", JavaExec) {
     group "_jar"
     description "run tests from given day"
     dependsOn jar
