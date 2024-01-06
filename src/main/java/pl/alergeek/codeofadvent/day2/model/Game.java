@@ -19,7 +19,8 @@ public record Game(String id, List<CubesSet> setList) {
     }
 
     public static boolean validate(Game game) {
-        return game.setList().stream().allMatch(CubesSet::validate);
+        return game.setList().stream().allMatch(
+                CubesSet::validate);
     }
 
     public static int calculatePower(List<CubesSet> cubesSets) {
