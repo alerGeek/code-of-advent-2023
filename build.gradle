@@ -110,6 +110,18 @@ tasks.register("day5", JavaExec) {
     ]
 }
 
+tasks.register("day6", JavaExec) {
+    group "_jar"
+    description "run tests from given day"
+    dependsOn jar
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = "-jar"
+    args = [
+            "${buildDir}/advent.jar",
+            "run", "--day", "day6"
+    ]
+}
+
 tasks.test {
     useJUnitPlatform()
 }
